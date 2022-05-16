@@ -32,5 +32,18 @@ console.log(testUser)
     console.log(testCheese)   
     expect(testCheese.name).toBe('Mozzarella', 'mejor mozzarella');
   })
+
+  test('Users can have many Boards', async () => {
+    const lindsay = await User.create({ name: "lindsay", email: "lindsay1991" })
+    const board2 = await Board.create({name: 'board2', description: "second best cheese board ever", rating: 4})
+    await lindsay.addBoard(board2)
+
+    let b = await User.findAll({ include: Board })
+    console.log("****Users", b)
+
+    const boards = await lindsay.getBoards()
+    console.log('lindsay fav boards', boards)
+    expect(boards.length).toBe(1)
+  })
   
 })

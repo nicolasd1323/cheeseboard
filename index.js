@@ -2,11 +2,11 @@ const { Board } = require('./Board')
 const { User } = require('./User')
 const { Cheese } = require('./Cheese')
 
-// User.hasMany(Board, Cheese)
-// Board.hasMany(Cheese)
+User.hasMany(Board)
 
-// Cheese.belongsTo(User, Cheese)
-// Board.belongsTo(User)
+Board.belongsToMany(Cheese, {through: 'board_cheese'});
+Cheese.belongsToMany(Board, {through: 'board_cheese'});
+
 
 module.exports = {
   User,
