@@ -14,21 +14,23 @@ describe('User, Boards, Cheeses Models', () => {
 
     test('can create a User', async () => {
         // TODO - test creating a band
-        const testUser = await User.create({name: 'Nico'})
-
-        expect(testUser.name).toBe('Nico');
+        const testUser = await User.create({name: 'Nico', email:"nicolasd12@gmail.com"})
+console.log(testUser)
+        expect(testUser.name).toBe('Nico', "nicolasd12@gmail.com");
     })
 
   test('can create a Board', async () => {
     // TODO - test creating a musician
-    const testBoard = await Board.create({name: 'board1'})
-        expect(testBoard.name).toBe('board1');
+    const testBoard = await Board.create({name: 'board1', description: "Best cheese board ever", rating: 5})
+    console.log(testBoard)    
+    expect(testBoard.name).toBe('board1', "Best cheese board ever", 5);
   })
 
   test('can create a Cheese', async () => {
     // TODO - test creating a musician
-    const testCheese = await Cheese.create({name: 'Mozzarella'})
-        expect(testCheese.name).toBe('Mozzarella');
+    const testCheese = await Cheese.create({name: 'Mozzarella', description: 'mejor mozzarella'})
+    console.log(testCheese)   
+    expect(testCheese.name).toBe('Mozzarella', 'mejor mozzarella');
   })
   
 })

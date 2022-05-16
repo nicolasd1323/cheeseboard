@@ -6,6 +6,7 @@ class Cheese extends Model{
 }
 Cheese.init({ 
   name: DataTypes.STRING,
+  description: DataTypes.STRING,
 },
   {
     sequelize,
