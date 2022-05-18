@@ -8,7 +8,7 @@ Board.init({
   name: DataTypes.STRING,
   description: DataTypes.STRING,
   rating: DataTypes.BIGINT,
-}, {
+},{
   sequelize,
   timestamps: false,
 })

@@ -1,5 +1,7 @@
 const {sequelize} = require('./db');
-const {User, Board, Cheese} = require('./index')
+const { User, Board, Cheese } = require('./index')
+const { DataTypes } = require('sequelize');
+
 
 describe('User, Boards, Cheeses Models', () => {
     /**
@@ -45,5 +47,11 @@ console.log(testUser)
     console.log('lindsay fav boards', boards)
     expect(boards.length).toBe(1)
   })
-  
+  test('testing eager loading', async () => {
+    const users = await User.findAll({
+      include: { model: Board, as: 'Board' }
+    });
+    console.log(JSON.stringify(users, null, 2));
+  })
+
 })
