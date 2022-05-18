@@ -7,7 +7,7 @@ User.hasMany(Board)
 Board.belongsToMany(Cheese, {through: 'board_cheese'});
 Cheese.belongsToMany(Board, {through: 'board_cheese'});
 
-User.hasMany(Board, { as: 'Board'})
+Board.hasMany(Cheese, { as: 'Cheese'})
 
 module.exports = {
   User,

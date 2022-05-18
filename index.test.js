@@ -48,10 +48,10 @@ console.log(testUser)
     expect(boards.length).toBe(1)
   })
   test('testing eager loading', async () => {
-    const users = await User.findAll({
-      include: { model: Board, as: 'Board' }
+    const boards = await Board.findAll({
+      include: { model: Cheese, as: 'Cheese' }
     });
-    console.log(JSON.stringify(users, null, 2));
+    console.log(JSON.stringify(boards, null, 2));
   })
 
 })
